@@ -8,9 +8,11 @@ the laboratory's coordinates), and the laboratory appears on GOFR's facility lis
 Point more OpenELIS instances at the same GOFR and each one registers itself: GOFR becomes the list and
 map of every laboratory running OpenELIS.
 
-Guide: [Facility Registry registration (GOFR)](https://uwdigi.atlassian.net/wiki/spaces/oeg/pages/1777303565)
+Guide: [Facility Registry registration (GOFR)](https://uwdigi.atlassian.net/wiki/spaces/oeg/pages/1778090416)
 (for the opposite direction, OpenELIS importing its facility list from GOFR, see
 [openelis-gofr](https://github.com/DIGI-UW/openelis-gofr)).
+
+Requires an OpenELIS image with facility registration ([OpenELIS-Global-2 #5041](https://github.com/DIGI-UW/OpenELIS-Global-2/pull/5041)): `develop` once it is merged, then the next release.
 
 ## Start
 
