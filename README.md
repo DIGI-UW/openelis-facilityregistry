@@ -84,9 +84,13 @@ org.openelisglobal.facility.id=OE-LAB-KLA
   `org.openelisglobal.facility.autolocation.url`). Until a browser position is stored, an administrator
   who signs in is asked once in each browser to share the device's location; if they allow it, that
   position replaces the IP one and OpenELIS registers again. **Use this device's location** on the
-  Facility location card does the same later. Browsers share a location only over HTTPS. A server
-  without internet access gets no IP position: the facility is registered without one (not on the map)
-  until an administrator shares a browser position.
+  Facility location card does the same later. Browsers share a location only over HTTPS. When the
+  lookup fails (no internet access yet), the facility is registered without a position (not on the map)
+  and OpenELIS tries the lookup again at every check until it answers or an administrator shares a
+  browser position.
+
+The facility's own row under **Admin > Locations** shows the position read-only: it is set only through
+these properties or the Facility location card.
 
 After changing a property, run `docker compose up -d --force-recreate oe.openelis.org`.
 
@@ -100,7 +104,7 @@ After changing a property, run `docker compose up -d --force-recreate oe.openeli
   "type": [
     { "coding": [ { "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode", "code": "HLAB", "display": "hospital laboratory" } ] },
     { "coding": [ { "system": "urn:ietf:rfc:3986", "code": "urn:ihe:iti:mcsd:2019:facility" } ] } ],
-  "physicalType": { "coding": [ { "system": "http://hl7.org/fhir/ValueSet/location-physical-type", "code": "bu" } ] },
+  "physicalType": { "coding": [ { "system": "http://terminology.hl7.org/CodeSystem/location-physical-type", "code": "bu" } ] },
   "position": { "longitude": 32.5825, "latitude": 0.3476 },
   "managingOrganization": { "reference": "Organization/<facility uuid>" } }
 ```
